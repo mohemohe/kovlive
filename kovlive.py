@@ -2,6 +2,7 @@
 # coding:utf-8
 
 
+import codecs
 import math
 import sys
 import re
@@ -25,7 +26,7 @@ class KovLang:
         modelfile: str
     ) -> dict:
         phrasemodel = {}
-        with open(modelfile) as f:
+        with codecs.open(modelfile, 'r', 'utf-8') as f:
             for line in f:
                 words, prob = line.rstrip().split("\t")
                 prob = float(prob)
@@ -41,7 +42,7 @@ class KovLang:
     ) -> (dict, dict):
         unimodel = {}
         bimodel = {}
-        with open(modelfile) as f:
+        with codecs.open(modelfile, 'r', 'utf-8') as f:
             for line in f:
                 words, prob = line.rstrip().split("\t")
                 prob = float(prob)
